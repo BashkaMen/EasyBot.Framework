@@ -1,27 +1,26 @@
-﻿using EasyBot.Framework.Models;
+﻿using EasyBot.Framework.Abstractions;
+using EasyBot.Framework.Models;
 using System.Threading.Tasks;
 
 namespace EasyBot.Framework
 {
-    public sealed class ChatContext
+    public sealed class ChatContext<T> where T : IChannel
     {
-        public string ChatId { get; }
-        public string ChannelName { get; }
+        private readonly IConnector<T> connector;
 
-        public ChatContext()
+
+
+
+        public ChatContext(IConnector<T> connector)
         {
-            
+            this.connector = connector;
         }
 
 
         public async Task<string> Send(ChatActivity activity)
         {
-            return "";
-        }
-
-        public async Task Edit(string activityId, ChatActivity activity)
-        {
-
+            var id = await connector.SendActivity(activity);
+            return id;
         }
 
     }

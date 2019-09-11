@@ -1,12 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using EasyBot.Framework;
 using System.Threading.Tasks;
 
 namespace Tests
 {
-    class FlowTests
+    internal class FlowTests
     {
-        
+        public async Task Handle()
+        {
+            var message = new TestMessage
+            {
+                chatId = 100,
+                text = "qweqweqwe",
+                fromUser = "asdgfasd asdjkas dasdas"
+            };
+
+
+            await new BotProcessor(null).Handle(message);
+
+
+        }
     }
 }

@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 
 namespace EasyBot.Framework.Abstractions
 {
-    public interface IActivityExtrable
+    public interface IConverter<T>
     {
-        Task<IEnumerable<ChatActivity>> Extract();
+        Task<ChatActivity> Convert(T model);
+        Task<IEnumerable<T>> ConvertBack(ChatActivity model);
     }
 }

@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace EasyBot.Framework.Abstractions
 {
-    public abstract class IChatState
+    public abstract class IChatState<T> where T : IChannel
     {
         public string Type => GetType().FullName;
-        public abstract Task<IChatState> HandleActivity(ChatActivity activity, ChatContext context);
+        public abstract Task<IChatState<T>> HandleActivity(ChatActivity activity, ChatContext<T> context);
     }
 }
