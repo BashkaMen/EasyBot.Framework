@@ -4,6 +4,8 @@ using EasyBot.Framework.Connectors;
 using EasyBot.Framework.Converters;
 using EasyBot.Framework.Models.Telegram;
 using Microsoft.Extensions.DependencyInjection;
+using AutoMapper;
+using System.Reflection;
 
 namespace EasyBot.Framework
 {
@@ -11,6 +13,8 @@ namespace EasyBot.Framework
     {
         public static void AddEasyBotFramework(this IServiceCollection services)
         {
+            services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
             services.AddMemoryCache();
             services.AddScoped(typeof(ChatContext<>));
             services.AddScoped(typeof(BotHandler<,>));

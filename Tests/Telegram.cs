@@ -1,4 +1,5 @@
 ﻿using EasyBot.Framework;
+using EasyBot.Framework.Abstractions;
 using EasyBot.Framework.Connectors;
 using EasyBot.Framework.Models.Telegram;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,6 +20,8 @@ namespace Tests
             services.AddEasyBotFramework();
             services.AddTelegramCore();
 
+            services.AddScoped<IChatState<TelegramChannel>, EchoState<TelegramChannel>>();
+
             var provider = services.BuildServiceProvider();
 
 
@@ -30,9 +33,14 @@ namespace Tests
         {
             var message = new TelegramActivity
             {
-
+                Chat = new Chat
+                {
+                    Id ="26"
+                },
+                Text = "test"
             };
 
+            await botHandler.Handle(message);
             await botHandler.Handle(message);
         }
     }

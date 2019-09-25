@@ -1,7 +1,9 @@
 ﻿using EasyBot.Framework.Abstractions;
 using EasyBot.Framework.Connectors;
 using EasyBot.Framework.Models;
+using Newtonsoft.Json;
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace EasyBot.Framework.Channels
@@ -9,9 +11,11 @@ namespace EasyBot.Framework.Channels
 
     public class TelegramConnector : IConnector<TelegramChannel>
     {
-        public Task<string> SendActivity(ChatActivity activity)
+        public async Task<string> SendActivity(ChatActivity activity)
         {
-            throw new NotImplementedException();
+            Debug.WriteLine($"Sended: {JsonConvert.SerializeObject(activity)}");
+
+            return Guid.NewGuid().ToString();
         }
     }
 
