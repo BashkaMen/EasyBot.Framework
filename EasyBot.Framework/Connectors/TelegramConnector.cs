@@ -1,14 +1,11 @@
 ﻿using EasyBot.Framework.Abstractions;
+using EasyBot.Framework.Connectors;
 using EasyBot.Framework.Models;
 using System;
 using System.Threading.Tasks;
 
-namespace EasyBot.Framework.Connectors
+namespace EasyBot.Framework.Channels
 {
-    public class TelegramChannel : IChannel
-    {
-        public string Name => "Telegram";
-    }
 
     public class TelegramConnector : IConnector<TelegramChannel>
     {
