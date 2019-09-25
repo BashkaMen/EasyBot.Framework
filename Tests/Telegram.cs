@@ -22,6 +22,15 @@ namespace Tests
 
             services.AddScoped<IChatState<TelegramChannel>, EchoState<TelegramChannel>>();
 
+            //services.AddScoped<IChatState<TelegramChannel>, TestState1<TelegramChannel>>();
+            //services.AddScoped<TestState1<TelegramChannel>>();
+
+            //services.AddScoped<IChatState<TelegramChannel>, TestState2<TelegramChannel>>();
+            //services.AddScoped<TestState2<TelegramChannel>>();
+
+            //services.AddScoped<IChatState<TelegramChannel>, CounterState<TelegramChannel>>();
+
+
             var provider = services.BuildServiceProvider();
 
 
