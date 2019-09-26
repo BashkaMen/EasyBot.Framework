@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 
 namespace EasyBot.Framework.Abstractions
 {
-    public interface IChatStateStorage<T> where T : IChannel
+    public interface IChatStateStorage<TModel>
     {
-        Task<IChatState<T>> GetValue(string key);
-        Task SaveChanges(string key, IChatState<T> value);
+        Task<ChatState<TModel>> GetValue(string key);
+        Task SaveChanges(string key, ChatState<TModel> value);
     }
 }

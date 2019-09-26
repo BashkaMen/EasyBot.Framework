@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace EasyBot.Framework
 {
-    public class MemoryChatStateStorage<T> : IChatStateStorage<T> where T : IChannel
+    public class MemoryChatStateStorage<TModel> : IChatStateStorage<TModel>
     {
         private readonly IMemoryCache cache;
 
@@ -13,12 +13,12 @@ namespace EasyBot.Framework
             this.cache = cache;
         }
 
-        public Task<IChatState<T>> GetValue(string key)
+        public Task<ChatState<TModel>> GetValue(string key)
         {
-            return Task.FromResult(cache.Get<IChatState<T>>(key));
+            return Task.FromResult(cache.Get<ChatState<TModel>>(key));
         }
 
-        public Task SaveChanges(string key, IChatState<T> value)
+        public Task SaveChanges(string key, ChatState<TModel> value)
         {
             cache.Set(key, value);
 

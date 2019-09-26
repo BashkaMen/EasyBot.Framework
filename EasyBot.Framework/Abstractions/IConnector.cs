@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
-using EasyBot.Framework.Models;
+﻿using System.Threading.Tasks;
 
 namespace EasyBot.Framework.Abstractions
 {
-    public interface IConnector<T> where T : IChannel
+    public interface IConnector<TModel>
     {
-        Task<string> SendActivity(ChatActivity activity);
+        Task<string> SendActivity(TModel activity);
     }
 }

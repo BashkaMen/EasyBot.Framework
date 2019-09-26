@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace EasyBot.Framework
 {
-    public class BotHandler<TModel, TChannel> where TChannel : IChannel
+    public class BotHandler<TModel>
     {
         private readonly IConverter<TModel> converter;
-        private readonly ChatContext<TChannel> context;
-        private readonly IChatStateStorage<TChannel> storage;
-        private readonly IEnumerable<IChatState<TChannel>> chatStates;
+        private readonly ChatContext<TModel> context;
+        private readonly IChatStateStorage<TModel> storage;
+        private readonly IEnumerable<ChatState<TModel>> chatStates;
 
-        public BotHandler(IConverter<TModel> converter, ChatContext<TChannel> context, IChatStateStorage<TChannel> storage, IEnumerable<IChatState<TChannel>> chatStates)
+        public BotHandler(IConverter<TModel> converter, ChatContext<TModel> context, IChatStateStorage<TModel> storage, IEnumerable<ChatState<TModel>> chatStates)
         {
             this.converter = converter;
             this.context = context;

@@ -28,16 +28,12 @@ namespace EasyBot.Framework.Converters
             throw new NotSupportedException("Не поддерживается конвертирование");
         }
 
-        public async Task<IEnumerable<TelegramActivity>> ConvertBack(ChatActivity model)
+        public async Task<TelegramActivity> ConvertBack(ChatActivity model)
         {
-            var result = new List<TelegramActivity>();
-
             if (model is TextActivity textMessage)
             {
-                result.Add(mapper.Map<TelegramActivity>(textMessage));
+                return mapper.Map<TelegramActivity>(textMessage);
             }
-
-            if (result.Any()) return result;
 
             throw new NotSupportedException("Не поддерживается конвертирование");
         }

@@ -4,22 +4,23 @@ using System.Threading.Tasks;
 
 namespace EasyBot.Framework
 {
-    public sealed class ChatContext<T> where T : IChannel
+    public sealed class ChatContext<TModel>
     {
-        private readonly IConnector<T> connector;
+        private readonly IConnector<TModel> connector;
+        private readonly IConverter<TModel> converter;
 
-
-
-
-        public ChatContext(IConnector<T> connector)
+        public ChatContext(IConnector<TModel> connector, IConverter<TModel> converter)
         {
             this.connector = connector;
+            this.converter = converter;
         }
 
 
         public async Task<string> Send(ChatActivity activity)
         {
-            var id = await connector.SendActivity(activity);
+            var converted = await converter.ConvertBack(activity);
+
+            var id = await connector.SendActivity(converted);
             return id;
         }
 
