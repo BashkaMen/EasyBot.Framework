@@ -24,7 +24,6 @@ namespace Tests
 
             botHandler = provider.GetRequiredService<BotHandler<ChatActivity>>();
             connector = provider.GetRequiredService<IConnector<ChatActivity>>() as MockConnector<ChatActivity>;
-
         }
 
 
@@ -33,16 +32,13 @@ namespace Tests
         {
             var message = new TextActivity
             {
-                Chat = new Chat { Id = "26"},
+                Chat = new Chat { Id = "26" },
                 Text = "test",
             };
 
             await botHandler.Handle(message);
 
-            await botHandler.Handle(message);
-
-            Assert.IsTrue(connector.Messages.Count == 2);
-            Assert.IsTrue(connector.Messages.Cast<TextActivity>().Count(s => s.Text == message.Text) == 2);
+            Assert.IsTrue(connector.Messages.Cast<TextActivity>().Any(s => s.Text == message.Text));
         }
     }
 }

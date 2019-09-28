@@ -18,7 +18,10 @@ namespace Tests.States
 
         public override async Task<ChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
-            return provider.GetRequiredService<TestState1<TModel>>();
+            var textMessage = activity.CreateActivity(GetType().Name);
+
+            await context.Send(textMessage);
+            return provider.GetRequiredService<TestState3<TModel>>();
         }
     }
 }

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Tests.States
 {
-    public class TestState1<TModel> : ChatState<TModel>
+    public class TestState3<TModel> : ChatState<TModel>
     {
         private readonly IServiceProvider provider;
 
-        public TestState1(IServiceProvider provider)
+        public TestState3(IServiceProvider provider)
         {
             this.provider = provider;
         }
@@ -21,7 +21,7 @@ namespace Tests.States
             var textMessage = activity.CreateActivity(GetType().Name);
 
             await context.Send(textMessage);
-            return provider.GetRequiredService<TestState2<TModel>>();
+            return provider.GetRequiredService<TestState1<TModel>>();
         }
     }
 }
