@@ -23,6 +23,5 @@ namespace EasyBot.Framework
             var id = await connector.SendActivity(converted);
             return id;
         }
-
     }
 }
