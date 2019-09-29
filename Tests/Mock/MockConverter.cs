@@ -1,6 +1,5 @@
 ﻿using EasyBot.Framework.Abstractions;
 using EasyBot.Framework.Models;
-using System;
 using System.Threading.Tasks;
 
 namespace Tests.Mock

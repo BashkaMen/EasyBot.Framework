@@ -3,8 +3,6 @@ using EasyBot.Framework.Abstractions;
 using EasyBot.Framework.Models;
 using EasyBot.Framework.Models.Telegram;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace EasyBot.Framework.Converters
@@ -19,7 +17,7 @@ namespace EasyBot.Framework.Converters
         }
 
         public async Task<ChatActivity> Convert(TelegramActivity model)
-        { 
+        {
             if (!string.IsNullOrEmpty(model.Text))
             {
                 return mapper.Map<TextActivity>(model);
