@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Tests.States
 {
-    public class CounterState<TModel> : ChatState<TModel>
+    public class CounterState<TModel> : IChatState<TModel>
     {
         public int Counter { get; set; }
 
-        public override async Task<ChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
+        public async Task<IChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
             await context.Send(new TextActivity
             {

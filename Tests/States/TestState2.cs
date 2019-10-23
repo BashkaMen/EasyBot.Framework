@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Tests.States
 {
-    public class TestState2<TModel> : ChatState<TModel>
+    public class TestState2<TModel> : IChatState<TModel>
     {
         private readonly IServiceProvider provider;
 
@@ -16,7 +16,7 @@ namespace Tests.States
             this.provider = provider;
         }
 
-        public override async Task<ChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
+        public async Task<IChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
             var textMessage = activity.CreateActivity(GetType().Name);
 

@@ -13,12 +13,12 @@ namespace EasyBot.Framework
             this.cache = cache;
         }
 
-        public Task<ChatState<TModel>> GetValue(string key)
+        public Task<IChatState<TModel>> GetValue(string key)
         {
-            return Task.FromResult(cache.Get<ChatState<TModel>>(key));
+            return Task.FromResult(cache.Get<IChatState<TModel>>(key));
         }
 
-        public Task SaveChanges(string key, ChatState<TModel> value)
+        public Task SaveChanges(string key, IChatState<TModel> value)
         {
             cache.Set(key, value);
 

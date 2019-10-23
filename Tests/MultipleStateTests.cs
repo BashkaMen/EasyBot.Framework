@@ -21,7 +21,7 @@ namespace Tests
         [SetUp]
         public void Init()
         {
-            services.AddScoped(typeof(ChatState<>), typeof(TestState1<>));
+            services.AddScoped(typeof(IChatState<>), typeof(TestState1<>));
             services.AddScoped(typeof(TestState1<>));
             services.AddScoped(typeof(TestState2<>));
             services.AddScoped(typeof(TestState3<>));

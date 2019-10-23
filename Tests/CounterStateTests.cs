@@ -18,7 +18,7 @@ namespace Tests
         [SetUp]
         public void Configure()
         {
-            services.AddScoped(typeof(ChatState<>), typeof(CounterState<>));
+            services.AddScoped(typeof(IChatState<>), typeof(CounterState<>));
 
             var provider = services.BuildServiceProvider();
 

@@ -5,7 +5,7 @@ namespace EasyBot.Framework.Abstractions
 {
     public interface IChatStateStorage<TModel>
     {
-        Task<ChatState<TModel>> GetValue(string key);
-        Task SaveChanges(string key, ChatState<TModel> value);
+        Task<IChatState<TModel>> GetValue(string key);
+        Task SaveChanges(string key, IChatState<TModel> value);
     }
 }

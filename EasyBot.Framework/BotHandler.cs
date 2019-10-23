@@ -11,9 +11,9 @@ namespace EasyBot.Framework
         private readonly IConverter<TModel> converter;
         private readonly ChatContext<TModel> context;
         private readonly IChatStateStorage<TModel> storage;
-        private readonly ChatState<TModel> chatState;
+        private readonly IChatState<TModel> chatState;
 
-        public BotHandler(IConverter<TModel> converter, ChatContext<TModel> context, IChatStateStorage<TModel> storage, ChatState<TModel> chatState)
+        public BotHandler(IConverter<TModel> converter, ChatContext<TModel> context, IChatStateStorage<TModel> storage, IChatState<TModel> chatState)
         {
             this.converter = converter;
             this.context = context;
