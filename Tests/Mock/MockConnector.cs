@@ -17,11 +17,11 @@ namespace Tests.Mock
             activities = new List<TModel>();
         }
 
-        public async Task<string> SendActivity(TModel activity)
+        public Task SendActivity(TModel activity)
         {
             activities.Add(activity);
 
-            return Guid.NewGuid().ToString();
+            return Task.CompletedTask;
         }
 
 

@@ -17,4 +17,10 @@
     <ProjectReference Include="..\EasyBot.Framework\EasyBot.Framework.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Jsons\Telegram\TextMessage.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

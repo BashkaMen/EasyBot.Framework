@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using EasyBot.Framework.Abstractions;
-using EasyBot.Framework.Channels;
+using EasyBot.Framework.Connectors;
 using EasyBot.Framework.Converters;
 using EasyBot.Framework.Models.Telegram;
 using Microsoft.Extensions.DependencyInjection;
@@ -21,8 +21,9 @@ namespace EasyBot.Framework
 
         }
 
-        public static void AddTelegramCore(this IServiceCollection services)
+        public static void AddTelegramCore(this IServiceCollection services, string botToken)
         {
+            services.AddSingleton<TelegramToken>(s => new TelegramToken(botToken));
             services.AddScoped<IConverter<TelegramActivity>, TelegramConverter>();
             services.AddScoped<IConnector<TelegramActivity>, TelegramConnector>();
         }

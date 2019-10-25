@@ -4,6 +4,6 @@ namespace EasyBot.Framework.Abstractions
 {
     public interface IConnector<TModel>
     {
-        Task<string> SendActivity(TModel activity);
+        Task SendActivity(TModel activity);
     }
 }

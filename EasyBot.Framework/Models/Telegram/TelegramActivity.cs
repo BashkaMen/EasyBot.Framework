@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EasyBot.Framework.Models.Telegram
+﻿namespace EasyBot.Framework.Models.Telegram
 {
     public class TelegramActivity
     {
@@ -12,6 +8,6 @@ namespace EasyBot.Framework.Models.Telegram
 
     public class Chat
     {
-        public string Id { get; set; }
+        public long Id { get; set; }
     }
 }

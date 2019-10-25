@@ -9,6 +9,7 @@ namespace EasyBot.Framework
         private readonly IConnector<TModel> connector;
         private readonly IConverter<TModel> converter;
 
+
         public ChatContext(IConnector<TModel> connector, IConverter<TModel> converter)
         {
             this.connector = connector;
@@ -16,12 +17,11 @@ namespace EasyBot.Framework
         }
 
 
-        public async Task<string> Send(ChatActivity activity)
+        public async Task Send(ChatActivity activity)
         {
             var converted = await converter.ConvertBack(activity);
 
-            var id = await connector.SendActivity(converted);
-            return id;
+            await connector.SendActivity(converted);
         }
     }
 }

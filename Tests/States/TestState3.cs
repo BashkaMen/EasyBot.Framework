@@ -19,9 +19,9 @@ namespace Tests.States
         public async Task<IChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
             var textMessage = activity.CreateActivity(GetType().Name);
-
             await context.Send(textMessage);
-            return provider.GetRequiredService<TestState1<TModel>>();
+
+            return null;
         }
     }
 }
