@@ -23,7 +23,10 @@ namespace EasyBot.Framework
 
         public static void AddTelegramCore(this IServiceCollection services, string botToken)
         {
-            services.AddSingleton<TelegramToken>(s => new TelegramToken(botToken));
+            services.Configure<TelegramSettings>(s =>
+            {
+                s.Token = botToken;
+            });
             services.AddScoped<IConverter<TelegramActivity>, TelegramConverter>();
             services.AddScoped<IConnector<TelegramActivity>, TelegramConnector>();
         }

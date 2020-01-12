@@ -16,7 +16,7 @@ namespace EasyBot.Framework.Converters
             this.mapper = mapper;
         }
 
-        public async Task<ChatActivity> Convert(TelegramActivity model)
+        public async Task<ChatActivity> ConvertBack(TelegramActivity model)
         {
             if (!string.IsNullOrEmpty(model.Text))
             {

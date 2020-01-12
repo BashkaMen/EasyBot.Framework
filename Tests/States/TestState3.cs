@@ -19,7 +19,7 @@ namespace Tests.States
         public async Task<IChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
             var textMessage = activity.CreateActivity(GetType().Name);
-            await context.Send(textMessage);
+            await context.SendAsync(textMessage);
 
             return null;
         }

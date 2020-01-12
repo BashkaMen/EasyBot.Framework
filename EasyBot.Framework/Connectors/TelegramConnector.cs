@@ -1,10 +1,7 @@
 ﻿using EasyBot.Framework.Abstractions;
 using EasyBot.Framework.Models.Telegram;
 using Microsoft.AspNetCore.Http.Extensions;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Diagnostics;
+using Microsoft.Extensions.Options;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -16,10 +13,10 @@ namespace EasyBot.Framework.Connectors
         private readonly HttpClient http;
         private readonly string baseUrl;
 
-        public TelegramConnector(TelegramToken token)
+        public TelegramConnector(IOptions<TelegramSettings> settings)
         {
             http = new HttpClient();
-            baseUrl = $"https://api.telegram.org/bot{token.Value}";
+            baseUrl = $"https://api.telegram.org/bot{settings.Value.Token}";
         }
 
 

@@ -9,7 +9,7 @@ namespace Tests.States
     {
         public async Task<IChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
-            await context.Send(activity);
+            await context.SendAsync(activity);
 
             return this;
         }

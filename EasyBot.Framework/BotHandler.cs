@@ -20,7 +20,7 @@ namespace EasyBot.Framework
 
         public async Task Handle(TModel model)
         {
-            var activity = await converter.Convert(model);
+            var activity = await converter.ConvertBack(model);
             var key = activity.Chat.Id;
 
             var state = await storage.GetValue(key) ?? chatState;

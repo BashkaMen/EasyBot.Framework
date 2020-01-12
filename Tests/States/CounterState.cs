@@ -11,7 +11,7 @@ namespace Tests.States
 
         public async Task<IChatState<TModel>> HandleActivity(ChatActivity activity, ChatContext<TModel> context)
         {
-            await context.Send(new TextActivity
+            await context.SendAsync(new TextActivity
             {
                 Chat = activity.Chat,
                 Text = $"Count: {Counter++}"

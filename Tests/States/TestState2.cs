@@ -20,7 +20,7 @@ namespace Tests.States
         {
             var textMessage = activity.CreateActivity(GetType().Name);
 
-            await context.Send(textMessage);
+            await context.SendAsync(textMessage);
             return provider.GetRequiredService<TestState3<TModel>>();
         }
     }
